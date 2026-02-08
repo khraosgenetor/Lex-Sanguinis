@@ -1,0 +1,93 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "type": "java",
+      "request": "launch",
+      "name": "Client",
+      "presentation": {
+        "group": "Mod Development - Code",
+        "order": 0
+      },
+      "projectName": "Code",
+      "mainClass": "net.neoforged.devlaunch.Main",
+      "args": [
+        "@/home/DevHome/MC/NeoForge/Lex Sanguinis/Code/build/moddev/clientRunProgramArgs.txt"
+      ],
+      "vmArgs": [
+        "@/home/DevHome/MC/NeoForge/Lex Sanguinis/Code/build/moddev/clientRunVmArgs.txt",
+        "-Dfml.modFolders\u003dlexsanguinis%%/home/DevHome/MC/NeoForge/Lex Sanguinis/Code/bin/main"
+      ],
+      "cwd": "${workspaceFolder}/run",
+      "env": {},
+      "console": "internalConsole",
+      "shortenCommandLine": "none"
+    },
+    {
+      "type": "java",
+      "request": "launch",
+      "name": "Data",
+      "presentation": {
+        "group": "Mod Development - Code",
+        "order": 1
+      },
+      "projectName": "Code",
+      "mainClass": "net.neoforged.devlaunch.Main",
+      "args": [
+        "@/home/DevHome/MC/NeoForge/Lex Sanguinis/Code/build/moddev/dataRunProgramArgs.txt"
+      ],
+      "vmArgs": [
+        "@/home/DevHome/MC/NeoForge/Lex Sanguinis/Code/build/moddev/dataRunVmArgs.txt",
+        "-Dfml.modFolders\u003dlexsanguinis%%/home/DevHome/MC/NeoForge/Lex Sanguinis/Code/bin/main"
+      ],
+      "cwd": "${workspaceFolder}/run",
+      "env": {},
+      "console": "internalConsole",
+      "shortenCommandLine": "none"
+    },
+    {
+      "type": "java",
+      "request": "launch",
+      "name": "GameTestServer",
+      "presentation": {
+        "group": "Mod Development - Code",
+        "order": 2
+      },
+      "projectName": "Code",
+      "mainClass": "net.neoforged.devlaunch.Main",
+      "args": [
+        "@/home/DevHome/MC/NeoForge/Lex Sanguinis/Code/build/moddev/gameTestServerRunProgramArgs.txt"
+      ],
+      "vmArgs": [
+        "@/home/DevHome/MC/NeoForge/Lex Sanguinis/Code/build/moddev/gameTestServerRunVmArgs.txt",
+        "-Dfml.modFolders\u003dlexsanguinis%%/home/DevHome/MC/NeoForge/Lex Sanguinis/Code/bin/main"
+      ],
+      "cwd": "${workspaceFolder}/run",
+      "env": {},
+      "console": "internalConsole",
+      "shortenCommandLine": "none"
+    },
+    {
+      "type": "java",
+      "request": "launch",
+      "name": "Server",
+      "presentation": {
+        "group": "Mod Development - Code",
+        "order": 3
+      },
+      "projectName": "Code",
+      "mainClass": "net.neoforged.devlaunch.Main",
+      "args": [
+        "@/home/DevHome/MC/NeoForge/Lex Sanguinis/Code/build/moddev/serverRunProgramArgs.txt"
+      ],
+      "vmArgs": [
+        "@/home/DevHome/MC/NeoForge/Lex Sanguinis/Code/build/moddev/serverRunVmArgs.txt",
+        "-Dfml.modFolders\u003dlexsanguinis%%/home/DevHome/MC/NeoForge/Lex Sanguinis/Code/bin/main"
+      ],
+      "cwd": "${workspaceFolder}/run",
+      "env": {},
+      "console": "internalConsole",
+      "shortenCommandLine": "none"
+    }
+  ]
+}
