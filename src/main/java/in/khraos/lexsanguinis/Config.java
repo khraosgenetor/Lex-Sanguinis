@@ -2,11 +2,15 @@ package in.khraos.lexsanguinis;
 
 import net.neoforged.neoforge.common.ModConfigSpec;
 
-// Placeholder config for NeoForge.
-// Expand with options later as needed.
 public class Config {
-    
-    public static final ModConfigSpec SPEC = new ModConfigSpec.Builder()
-            .comment("Lex Sanguinis mod config. Add options here when needed.")
-            .build();
+
+    private static final ModConfigSpec.Builder BUILDER =
+            new ModConfigSpec.Builder();
+
+    public static final ModConfigSpec.BooleanValue DUMMY =
+            BUILDER
+                .comment("Lex Sanguinis mod config. Placeholder entry.")
+                .define("dummy", true);
+
+    public static final ModConfigSpec SPEC = BUILDER.build();
 }

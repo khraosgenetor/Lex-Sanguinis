@@ -2,16 +2,6 @@ package in.khraos.lexsanguinis;
 
 import org.slf4j.Logger;
 import com.mojang.logging.LogUtils;
-import net.minecraft.core.registries.Registries;
-import net.minecraft.network.chat.Component;
-import net.minecraft.world.food.FoodProperties;
-import net.minecraft.world.item.BlockItem;
-import net.minecraft.world.item.CreativeModeTab;
-import net.minecraft.world.item.CreativeModeTabs;
-import net.minecraft.world.item.Item;
-import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.state.BlockBehaviour;
-import net.minecraft.world.level.material.MapColor;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.bus.api.SubscribeEvent;
@@ -23,12 +13,9 @@ import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraft.client.Minecraft;
 import net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.neoforged.neoforge.common.NeoForge;
-import net.neoforged.neoforge.event.BuildCreativeModeTabContentsEvent;
 import net.neoforged.neoforge.event.server.ServerStartingEvent;
-import net.neoforged.neoforge.registries.DeferredBlock;
-import net.neoforged.neoforge.registries.DeferredHolder;
-import net.neoforged.neoforge.registries.DeferredItem;
-import net.neoforged.neoforge.registries.DeferredRegister;
+
+import in.khraos.lexsanguinis.ItemsDir.Items;
 
 @Mod(LexSanguinis.MODID)
 public class LexSanguinis {
@@ -39,22 +26,20 @@ public class LexSanguinis {
     // Logger
     public static final Logger LOGGER = LogUtils.getLogger();
 
-    // Deferred Registers
-    public static final DeferredRegister.Blocks BLOCKS = DeferredRegister.createBlocks(MODID);
-    public static final DeferredRegister.Items ITEMS = DeferredRegister.createItems(MODID);
-    public static final DeferredRegister<CreativeModeTab> CREATIVE_MODE_TABS = DeferredRegister.create(Registries.CREATIVE_MODE_TAB, MODID);
+    /* Method for creating Deferred Registers. If you have multiple Deferred Registers, you can create them all here. For example
+        public static final DeferredRegister.Blocks BLOCKS = DeferredRegister.createBlocks(MODID);
+        public static final DeferredRegister.Items ITEMS = DeferredRegister.createItems(MODID);
+        public static final DeferredRegister<CreativeModeTab> CREATIVE_MODE_TABS = DeferredRegister.create(Registries.CREATIVE_MODE_TAB, MODID);
+    */
 
-    // Example block
-    public static final DeferredBlock<Block> EXAMPLE_BLOCK = BLOCKS.registerSimpleBlock("example_block", BlockBehaviour.Properties.of().mapColor(MapColor.STONE));
+    /* Example of creating a block, item, and creative tab. You can delete this when you start adding your own content. 
+        public static final DeferredBlock<Block> EXAMPLE_BLOCK = BLOCKS.registerSimpleBlock("example_block", BlockBehaviour.Properties.of().mapColor(MapColor.STONE));
+        public static final DeferredItem<BlockItem> EXAMPLE_BLOCK_ITEM = ITEMS.registerSimpleBlockItem("example_block", EXAMPLE_BLOCK);
+        public static final DeferredItem<Item> EXAMPLE_ITEM = ITEMS.registerSimpleItem("example_item", new Item.Properties().food(new FoodProperties.Builder()
+                .alwaysEdible().nutrition(1).saturationModifier(2f).build()));
+    */
 
-    // Example block item
-    public static final DeferredItem<BlockItem> EXAMPLE_BLOCK_ITEM = ITEMS.registerSimpleBlockItem("example_block", EXAMPLE_BLOCK);
-
-    // Example food item
-    public static final DeferredItem<Item> EXAMPLE_ITEM = ITEMS.registerSimpleItem("example_item", new Item.Properties().food(new FoodProperties.Builder()
-            .alwaysEdible().nutrition(1).saturationModifier(2f).build()));
-
-    // Example creative tab
+    /* Example creative tab
     public static final DeferredHolder<CreativeModeTab, CreativeModeTab> EXAMPLE_TAB = CREATIVE_MODE_TABS.register("example_tab", () -> CreativeModeTab.builder()
             .title(Component.translatable("itemGroup.lexsanguinis"))
             .withTabsBefore(CreativeModeTabs.COMBAT)
@@ -63,22 +48,28 @@ public class LexSanguinis {
                 output.accept(EXAMPLE_ITEM.get());
             }).build());
 
+        */
+
     // Mod constructor
     public LexSanguinis(IEventBus modEventBus, ModContainer modContainer) {
 
         // Register common setup
         modEventBus.addListener(this::commonSetup);
 
-        // Register Deferred Registers
-        BLOCKS.register(modEventBus);
-        ITEMS.register(modEventBus);
-        CREATIVE_MODE_TABS.register(modEventBus);
+        /* Method for registering Deferred Registers. If you have multiple Deferred Registers, you can register them all here. For example
+            BLOCKS.register(modEventBus); //This for a register of blocks, and then you would do the same for items, entities, etc.
+            ITEMS.register(modEventBus);
+            CREATIVE_MODE_TABS.register(modEventBus);
+        */
+
+        Items.LSItemsBloodGod.register(modEventBus); // This is the General LS Items, ie, which fall into a general category.
+        //  You can create more Deferred Registers for specific categories, such as Weapons, Armor, etc. and then register those as well.
 
         // Register mod to NeoForge event bus
         NeoForge.EVENT_BUS.register(this);
 
         // Add items to creative tab
-        modEventBus.addListener(this::addCreative);
+        // modEventBus.addListener(this::addCreative);
 
         // Register config
         modContainer.registerConfig(ModConfig.Type.COMMON, Config.SPEC);
@@ -89,12 +80,13 @@ public class LexSanguinis {
 
     }
 
-    // Add example block item to building tab
-    private void addCreative(BuildCreativeModeTabContentsEvent event) {
-        if (event.getTabKey() == CreativeModeTabs.BUILDING_BLOCKS) {
-            event.accept(EXAMPLE_BLOCK_ITEM);
+    /* Add example block item to building tab
+        private void addCreative(BuildCreativeModeTabContentsEvent event) {
+            if (event.getTabKey() == CreativeModeTabs.BUILDING_BLOCKS) {
+                event.accept(EXAMPLE_BLOCK_ITEM);
+            }
         }
-    }
+    */
 
     // Server start event
     @SubscribeEvent
