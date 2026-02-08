@@ -40,5 +40,11 @@ public class EchoOfAeterniSanguinis extends Item {
         );
 
     }
-    
+
+    @SuppressWarnings("null")
+    @Override
+    public Component getName(ItemStack stack) {
+        return Component.translatable("item.modid.echo_of_aeterni_sanguinis")
+            .withStyle(style -> style.withColor(0xAA0000));
+    } 
 }
