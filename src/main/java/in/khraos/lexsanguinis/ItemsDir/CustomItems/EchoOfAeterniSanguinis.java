@@ -45,6 +45,6 @@ public class EchoOfAeterniSanguinis extends Item {
     @Override
     public Component getName(ItemStack stack) {
         return Component.translatable("item.modid.echo_of_aeterni_sanguinis")
-            .withStyle(style -> style.withColor(0xAA0000)); // Not in good health rn, will make changes tom. I js need github streak
+            .withStyle(style -> style.withColor(0xAA0000));
     } 
 }
