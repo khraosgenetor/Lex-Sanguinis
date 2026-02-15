@@ -20,7 +20,7 @@ import in.khraos.lexsanguinis.ItemsDir.Items;
 @Mod(LexSanguinis.MODID)
 public class LexSanguinis { // Working on lore rn, will update classes (DnD style) and items to fit the lore asap.
                             // Also, will be adding more items, and maybe some blocks, entities, etc. in the future.
-                            // For now, just want to get the basic structure of the mod set up and then will start adding content. (11th Feb n 12th Feb)
+                            // For now, just want to get the basic structure of the mod set up and then will start adding content. (11th Feb n 12th Feb n 15th Feb)
 
     // Mod ID for reference
     public static final String MODID = "lexsanguinis";
